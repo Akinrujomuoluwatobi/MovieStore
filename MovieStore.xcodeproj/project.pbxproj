@@ -17,6 +17,8 @@
 		04C0334E2661DCED00516171 /* MovieStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0334D2661DCED00516171 /* MovieStoreUITests.swift */; };
 		04C033662662341C00516171 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C033652662341C00516171 /* WebService.swift */; };
 		04C0336F26624C7500516171 /* MoveitemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0336E26624C7500516171 /* MoveitemCollectionViewCell.swift */; };
+		04C03377266250D900516171 /* Movies.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C03376266250D900516171 /* Movies.swift */; };
+		04C0337C266251C500516171 /* MoviesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0337B266251C500516171 /* MoviesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,8 @@
 		04C0334F2661DCED00516171 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		04C033652662341C00516171 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
 		04C0336E26624C7500516171 /* MoveitemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveitemCollectionViewCell.swift; sourceTree = "<group>"; };
+		04C03376266250D900516171 /* Movies.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movies.swift; sourceTree = "<group>"; };
+		04C0337B266251C500516171 /* MoviesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -139,6 +143,7 @@
 		04C033612662337300516171 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				04C03376266250D900516171 /* Movies.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -146,6 +151,7 @@
 		04C03362266233D100516171 /* View Models */ = {
 			isa = PBXGroup;
 			children = (
+				04C0337B266251C500516171 /* MoviesViewModel.swift */,
 			);
 			path = "View Models";
 			sourceTree = "<group>";
@@ -306,7 +312,9 @@
 			files = (
 				04C033302661DCEA00516171 /* MoviesListController.swift in Sources */,
 				04C0336F26624C7500516171 /* MoveitemCollectionViewCell.swift in Sources */,
+				04C03377266250D900516171 /* Movies.swift in Sources */,
 				04C0332C2661DCEA00516171 /* AppDelegate.swift in Sources */,
+				04C0337C266251C500516171 /* MoviesViewModel.swift in Sources */,
 				04C033662662341C00516171 /* WebService.swift in Sources */,
 				04C0332E2661DCEA00516171 /* SceneDelegate.swift in Sources */,
 			);
