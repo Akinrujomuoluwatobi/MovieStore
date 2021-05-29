@@ -9,12 +9,14 @@
 /* Begin PBXBuildFile section */
 		04C0332C2661DCEA00516171 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0332B2661DCEA00516171 /* AppDelegate.swift */; };
 		04C0332E2661DCEA00516171 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0332D2661DCEA00516171 /* SceneDelegate.swift */; };
-		04C033302661DCEA00516171 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0332F2661DCEA00516171 /* ViewController.swift */; };
+		04C033302661DCEA00516171 /* MoviesListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0332F2661DCEA00516171 /* MoviesListController.swift */; };
 		04C033332661DCEA00516171 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C033312661DCEA00516171 /* Main.storyboard */; };
 		04C033352661DCEC00516171 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 04C033342661DCEC00516171 /* Assets.xcassets */; };
 		04C033382661DCEC00516171 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 04C033362661DCEC00516171 /* LaunchScreen.storyboard */; };
 		04C033432661DCED00516171 /* MovieStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C033422661DCED00516171 /* MovieStoreTests.swift */; };
 		04C0334E2661DCED00516171 /* MovieStoreUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0334D2661DCED00516171 /* MovieStoreUITests.swift */; };
+		04C033662662341C00516171 /* WebService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C033652662341C00516171 /* WebService.swift */; };
+		04C0336F26624C7500516171 /* MoveitemCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04C0336E26624C7500516171 /* MoveitemCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +40,7 @@
 		04C033282661DCEA00516171 /* MovieStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MovieStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C0332B2661DCEA00516171 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		04C0332D2661DCEA00516171 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		04C0332F2661DCEA00516171 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		04C0332F2661DCEA00516171 /* MoviesListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoviesListController.swift; sourceTree = "<group>"; };
 		04C033322661DCEA00516171 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		04C033342661DCEC00516171 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		04C033372661DCEC00516171 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +51,8 @@
 		04C033492661DCED00516171 /* MovieStoreUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovieStoreUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		04C0334D2661DCED00516171 /* MovieStoreUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieStoreUITests.swift; sourceTree = "<group>"; };
 		04C0334F2661DCED00516171 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		04C033652662341C00516171 /* WebService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebService.swift; sourceTree = "<group>"; };
+		04C0336E26624C7500516171 /* MoveitemCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoveitemCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,9 +103,13 @@
 		04C0332A2661DCEA00516171 /* MovieStore */ = {
 			isa = PBXGroup;
 			children = (
+				04C0336D26624C3800516171 /* Views */,
+				04C03364266233EE00516171 /* Controllers */,
+				04C03363266233DF00516171 /* Services */,
+				04C03362266233D100516171 /* View Models */,
+				04C033612662337300516171 /* Models */,
 				04C0332B2661DCEA00516171 /* AppDelegate.swift */,
 				04C0332D2661DCEA00516171 /* SceneDelegate.swift */,
-				04C0332F2661DCEA00516171 /* ViewController.swift */,
 				04C033312661DCEA00516171 /* Main.storyboard */,
 				04C033342661DCEC00516171 /* Assets.xcassets */,
 				04C033362661DCEC00516171 /* LaunchScreen.storyboard */,
@@ -126,6 +134,44 @@
 				04C0334F2661DCED00516171 /* Info.plist */,
 			);
 			path = MovieStoreUITests;
+			sourceTree = "<group>";
+		};
+		04C033612662337300516171 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		04C03362266233D100516171 /* View Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Models";
+			sourceTree = "<group>";
+		};
+		04C03363266233DF00516171 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				04C033652662341C00516171 /* WebService.swift */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		04C03364266233EE00516171 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				04C0332F2661DCEA00516171 /* MoviesListController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		04C0336D26624C3800516171 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				04C0336E26624C7500516171 /* MoveitemCollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,8 +304,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				04C033302661DCEA00516171 /* ViewController.swift in Sources */,
+				04C033302661DCEA00516171 /* MoviesListController.swift in Sources */,
+				04C0336F26624C7500516171 /* MoveitemCollectionViewCell.swift in Sources */,
 				04C0332C2661DCEA00516171 /* AppDelegate.swift in Sources */,
+				04C033662662341C00516171 /* WebService.swift in Sources */,
 				04C0332E2661DCEA00516171 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
