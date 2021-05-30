@@ -17,7 +17,6 @@ class MoveitemCollectionViewCell: UICollectionViewCell {
     var favSelected: (()->())?
     
     func setupView(_ vm: MoviesViewModel) {
-        print(String(describing: vm))
         movieTitle.text = vm.title
         movieDirector.text = vm.directors
         movieReleaseYear.text = vm.year

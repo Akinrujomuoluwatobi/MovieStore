@@ -12,8 +12,10 @@ class MoviesListController: UIViewController {
     
     @IBOutlet weak var searchItem: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
     var movieListViewModel = MoviesListViewModel()
+    var moviesPayload: [D]?
     var selectedVM: MoviesViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +29,14 @@ class MoviesListController: UIViewController {
     }
     
     func fetchPopulateMovies(_ searchTerm: String) {
+        loadingIndicator.startAnimating()
         WebServices().load(resource: Movies.all(searchTerm)) {[weak self] result in
+            self?.loadingIndicator.stopAnimating()
             switch result.success {
             case true:
                 if let moviesObj = result.data as? Movies {
                     if let movies = moviesObj.d {
+                        self?.moviesPayload = movies
                         self?.movieListViewModel.moviesViewModel = movies.map(MoviesViewModel.init)
                         self?.collectionView.reloadData()
                     }
@@ -49,13 +54,16 @@ class MoviesListController: UIViewController {
         fetchPopulateMovies(searchItem.text ?? "")
     }
     
-    func saveFavourite(_ vm: MoviesViewModel) {
-        let mvitem = D(i: vm.imageDetails, id: vm.id, l: vm.title, q: vm.feature, rank: nil, s: vm.directors, vt: nil, y: Int(vm.year))
+    func saveFavourite(_ movie: D?) {
         do {
             let realm =  try? Realm(configuration: RealmConfig.configuration)
-            try! realm?.write {
-                realm?.add(mvitem)
+            
+            if let movie = movie {
+                try! realm?.write {
+                    realm?.add(movie)
+                }
             }
+            
         } catch {
             print(error)
         }
@@ -79,7 +87,7 @@ extension MoviesListController: UICollectionViewDataSource, UICollectionViewDele
         cell.setupView(movieListViewModel.moviesViewModel[indexPath.row])
         cell.favSelected = {
             () in
-            self.saveFavourite(self.movieListViewModel.moviesViewModel[indexPath.row])
+            self.saveFavourite(self.moviesPayload?[indexPath.row])
         }
         
         cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap(_:))))

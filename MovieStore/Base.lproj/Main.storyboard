@@ -111,6 +111,11 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="large" id="Iqw-M2-Twm">
+                                <rect key="frame" x="10" y="108" width="394" height="680"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -135,6 +140,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="collectionView" destination="h0Q-Eq-bBE" id="B6C-hu-YK6"/>
+                        <outlet property="loadingIndicator" destination="Iqw-M2-Twm" id="yDd-YI-efs"/>
                         <outlet property="searchItem" destination="ZMo-7W-aMF" id="RgU-Oq-dTM"/>
                         <segue destination="P22-1d-WhV" kind="show" identifier="LaunchMovieDetailsVC" id="m4t-mc-4gV"/>
                     </connections>
@@ -282,7 +288,7 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MoveitemCollectionViewCell" id="dIz-RH-Y8t" customClass="MoveitemCollectionViewCell" customModule="MovieStore" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="FavMovieCollectionCell" id="dIz-RH-Y8t" customClass="MoveitemCollectionViewCell" customModule="MovieStore" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="127.5" height="311.5"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="ITf-5O-ADa">
@@ -342,11 +348,11 @@
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
-                                            <outlet property="favButton" destination="rJ3-Nm-Ou1" id="9Jc-dK-R1S"/>
-                                            <outlet property="movieDirector" destination="1yc-nm-5bf" id="jPR-JW-CM1"/>
-                                            <outlet property="movieReleaseYear" destination="kCh-u2-JjO" id="eBg-ZD-zgE"/>
-                                            <outlet property="movieThumbnail" destination="Qdu-nD-Liv" id="LO9-Ys-YBn"/>
-                                            <outlet property="movieTitle" destination="roa-hx-LeS" id="tSb-aD-ghB"/>
+                                            <outlet property="favButton" destination="rJ3-Nm-Ou1" id="uDp-ae-nhi"/>
+                                            <outlet property="movieDirector" destination="1yc-nm-5bf" id="SFA-K0-bOK"/>
+                                            <outlet property="movieReleaseYear" destination="kCh-u2-JjO" id="AaE-yb-k5u"/>
+                                            <outlet property="movieThumbnail" destination="Qdu-nD-Liv" id="Phe-2K-H4K"/>
+                                            <outlet property="movieTitle" destination="roa-hx-LeS" id="MH0-jc-ajq"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -364,7 +370,7 @@
                     <navigationItem key="navigationItem" title="Favourites" id="2hQ-qv-048"/>
                     <connections>
                         <outlet property="collectionView" destination="c6m-q0-iOw" id="PJz-tk-3u7"/>
-                        <segue destination="P22-1d-WhV" kind="show" id="pon-T7-CEw"/>
+                        <segue destination="P22-1d-WhV" kind="show" identifier="LaunchMovieDetailsVC" id="pon-T7-CEw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3hZ-o3-Bab" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -391,7 +397,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="m4t-mc-4gV"/>
+        <segue reference="pon-T7-CEw"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>

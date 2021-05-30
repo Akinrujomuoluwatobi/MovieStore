@@ -34,24 +34,14 @@ class Movies: Mappable, Codable {
         self.init()
     }
     
-    var i: I?
-    var id, l, q: String?
-    var rank: Int?
-    var s: String?
-    var vt: Int?
-    var y: Int?
-    
-    convenience required init(i: I?, id: String?, l: String?, q: String?, rank: Int?, s: String?, vt: Int?, y: Int?) {
-        self.init()
-        self.i = i
-        self.id = id
-        self.l = l
-        self.q = q
-        self.rank = rank
-        self.s = s
-        self.vt = vt
-        self.y = y
-    }
+    dynamic var i: I?
+    dynamic var id: String = ""
+    dynamic var l: String = ""
+    dynamic var q: String = ""
+    dynamic var rank: Int = 0
+    dynamic var s: String = ""
+    dynamic var vt: Int = 0
+    dynamic var y: Int = 0
 
     func mapping(map: Map) {
         i <- map["i"]
@@ -69,9 +59,9 @@ class Movies: Mappable, Codable {
 @objcMembers class I: Object, Mappable, Codable {
     
     
-    var height: Int?
-    var imageURL: String?
-    var width: Int?
+    dynamic var height: Int = 0
+    dynamic var imageURL: String = ""
+    dynamic var width: Int = 0
 
     enum CodingKeys: String, CodingKey {
         case height
