@@ -25,11 +25,11 @@ struct MoviesViewModel {
 }
 
 extension MoviesViewModel {
-    var title : String {
+    var title : String? {
         return movie.l
     }
     
-    var id : String {
+    var id : String? {
         return movie.id
     }
     
@@ -37,11 +37,15 @@ extension MoviesViewModel {
         return movie.i
     }
     
-    var directors: String {
+    var directors: String? {
         return movie.s
     }
     
     var year: String {
-        return String(movie.y)
+        return String(movie.y ?? 0)
     }
+    var feature: String?{
+        return movie.q
+    }
+    
 }

@@ -1,0 +1,6 @@
+framework module Pods_MovieStoreTests {
+  umbrella header "Pods-MovieStoreTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
