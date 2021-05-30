@@ -94,11 +94,11 @@ class Movies: Mappable, Codable {
 extension Movies {
     
     static func all(_ param: String) -> Resource<Movies> {
-        guard let url = URL(string: "https://imdb8.p.rapidapi.com/auto-complete?q=\(param)") else { fatalError("Url not valid")
+        guard let url = URL(string: "https://imdb8.p.rapidapi.com/auto-complete") else { fatalError("Url not valid")
             
         }
-        
-        return Resource<Movies>(url: url)
+        let finalURL = url.appending("q", value: param)
+        return Resource<Movies>(url: finalURL)
         
     }
     

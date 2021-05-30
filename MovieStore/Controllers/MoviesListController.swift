@@ -14,6 +14,7 @@ class MoviesListController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var movieListViewModel = MoviesListViewModel()
+    var selectedVM: MoviesViewModel?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -22,11 +23,11 @@ class MoviesListController: UIViewController {
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
         
-        fetchPopulateMovies()
+        fetchPopulateMovies("action")
     }
     
-    func fetchPopulateMovies() {
-        WebServices().load(resource: Movies.all("action")) {[weak self] result in
+    func fetchPopulateMovies(_ searchTerm: String) {
+        WebServices().load(resource: Movies.all(searchTerm)) {[weak self] result in
             switch result.success {
             case true:
                 if let moviesObj = result.data as? Movies {
@@ -45,6 +46,7 @@ class MoviesListController: UIViewController {
     }
     
     @IBAction func searchButtonPressed(_ sender: Any) {
+        fetchPopulateMovies(searchItem.text ?? "")
     }
     
     func saveFavourite(_ vm: MoviesViewModel) {
@@ -57,6 +59,12 @@ class MoviesListController: UIViewController {
         } catch {
             print(error)
         }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let vc  = segue.destination as? MovieDetailsViewController else { return  }
+        vc.vm = selectedVM
+        
     }
     
 }
@@ -74,6 +82,7 @@ extension MoviesListController: UICollectionViewDataSource, UICollectionViewDele
             self.saveFavourite(self.movieListViewModel.moviesViewModel[indexPath.row])
         }
         
+        cell.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tap(_:))))
         return cell
         
     }
@@ -82,5 +91,15 @@ extension MoviesListController: UICollectionViewDataSource, UICollectionViewDele
         return CGSize(width: 180, height: 300)
     }
     
+    @objc func tap(_ sender: UITapGestureRecognizer) {
+        
+        let location = sender.location(in: self.collectionView)
+        let indexPath = self.collectionView.indexPathForItem(at: location)
+        
+        if let index = indexPath {
+            selectedVM = movieListViewModel.moviesViewModel[index.row]
+            performSegue(withIdentifier: "LaunchMovieDetailsVC", sender: self)
+        }
+    }
     
 }

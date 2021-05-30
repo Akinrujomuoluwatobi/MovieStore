@@ -48,4 +48,13 @@ extension MoviesViewModel {
         return movie.q
     }
     
+    var rating: Int?{
+        return movie.rank
+    }
+    
+    var type: String? {
+        return movie.q
+    }
+    
+    
 }
