@@ -20,17 +20,18 @@ class FavouritesViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = UICollectionViewFlowLayout()
+        
+        // Get all movies in the realm DB and create and map to the ViewModel
         let localRealm = try! Realm(configuration: RealmConfig.configuration)
-        // Get all tasks in the realm
         movies = localRealm.objects(D.self).toArray()
         if let movies = movies {
             self.movieListViewModel.moviesViewModel = movies.map(MoviesViewModel.init)
         }
         collectionView.reloadData()
         
-        // Do any additional setup after loading the view.
     }
     
+    //This method get the indexpath of a movie to delete and delete from the RealmDB afterward reload the collectionView
     func deleteFavourite(_ indexPath: IndexPath) {
         movieListViewModel.moviesViewModel.remove(at: indexPath.row)
         let movie = movies?[indexPath.row]
@@ -45,6 +46,7 @@ class FavouritesViewController: UIViewController {
         
     }
     
+    //Override method to navigate to the MovieDetailsController
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let vc  = segue.destination as? MovieDetailsViewController else { return  }
         vc.vm = selectedVM
@@ -73,7 +75,7 @@ extension FavouritesViewController: UICollectionViewDataSource, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 180, height: 300)
+        return CGSize(width: 180, height: 310)
     }
     
     @objc func tap(_ sender: UITapGestureRecognizer) {

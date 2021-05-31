@@ -9,6 +9,7 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
+//This struct file is pass newtork response and data to the completion handler
 struct NetworkResponseModel {
     var statusCode: Int
     var errorMessage: String?

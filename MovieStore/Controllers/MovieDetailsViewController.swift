@@ -21,9 +21,9 @@ class MovieDetailsViewController: UIViewController {
         title = vm?.title
         print(String(describing: vm))
         loadMovieDetails()
-        // Do any additional setup after loading the view.
     }
     
+    //This method load the movie details from the ViewModel
     func loadMovieDetails() {
         if let imageDetails = vm?.imageDetails {
             let imageUrl:URL = URL(string: imageDetails.imageURL ?? "")!

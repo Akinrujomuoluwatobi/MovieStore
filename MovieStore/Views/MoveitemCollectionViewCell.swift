@@ -13,9 +13,11 @@ class MoveitemCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var movieDirector: UILabel!
     @IBOutlet weak var movieReleaseYear: UILabel!
     @IBOutlet weak var favButton: UIButton!
+    @IBOutlet weak var imageLoading: UIActivityIndicatorView!
     
     var favSelected: (()->())?
     
+    //This method is called from the moview list controller collectionView cell dequeing to load objects to the view.
     func setupView(_ vm: MoviesViewModel) {
         movieTitle.text = vm.title
         movieDirector.text = vm.directors
@@ -24,10 +26,9 @@ class MoveitemCollectionViewCell: UICollectionViewCell {
         if let imageDetails = vm.imageDetails {
             let imageUrl:URL = URL(string: imageDetails.imageURL ?? "")!
             DispatchQueue.global(qos: .userInitiated).async {
-                        
                 let imageData:NSData = NSData(contentsOf: imageUrl as URL)!
                         DispatchQueue.main.async {
-                            
+                            self.imageLoading.stopAnimating()
                             let image = UIImage(data: imageData as Data)
                             self.movieThumbnail.image = image
                             self.movieThumbnail.contentMode = UIView.ContentMode.scaleAspectFit

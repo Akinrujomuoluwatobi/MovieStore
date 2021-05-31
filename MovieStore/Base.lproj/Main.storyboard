@@ -82,6 +82,13 @@
                                                     <color key="tintColor" red="0.14117647059999999" green="0.28627450980000002" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
                                                     <state key="normal" title="Button" image="heart" catalog="system"/>
                                                 </button>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Lib-NT-tA0">
+                                                    <rect key="frame" x="54" y="90" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="20" id="TvB-vq-GDS"/>
+                                                        <constraint firstAttribute="height" constant="20" id="vZL-Sd-cT6"/>
+                                                    </constraints>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="FeC-QP-21a" firstAttribute="leading" secondItem="hDW-0x-LJL" secondAttribute="leading" constant="10" id="0vn-tl-wVj"/>
@@ -96,13 +103,16 @@
                                                 <constraint firstItem="bij-KC-GYK" firstAttribute="top" secondItem="FeC-QP-21a" secondAttribute="bottom" id="X9f-GM-2y7"/>
                                                 <constraint firstItem="0RC-wd-dt4" firstAttribute="top" secondItem="hDW-0x-LJL" secondAttribute="top" id="Z2O-Th-Hgo"/>
                                                 <constraint firstItem="12j-7C-VFw" firstAttribute="leading" secondItem="hDW-0x-LJL" secondAttribute="leading" constant="10" id="gyp-Pi-PeJ"/>
+                                                <constraint firstItem="Lib-NT-tA0" firstAttribute="centerX" secondItem="0RC-wd-dt4" secondAttribute="centerX" id="k20-07-6En"/>
                                                 <constraint firstAttribute="bottom" secondItem="bij-KC-GYK" secondAttribute="bottom" constant="10" id="nF9-mF-OfA"/>
                                                 <constraint firstAttribute="trailing" secondItem="bij-KC-GYK" secondAttribute="trailing" constant="10" id="oJ5-jo-Dad"/>
+                                                <constraint firstItem="Lib-NT-tA0" firstAttribute="centerY" secondItem="0RC-wd-dt4" secondAttribute="centerY" id="q7O-45-Dvl"/>
                                                 <constraint firstItem="12j-7C-VFw" firstAttribute="top" secondItem="0RC-wd-dt4" secondAttribute="bottom" constant="10" id="vnC-Gx-NRi"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="favButton" destination="hir-eu-aKu" id="RbO-KC-oPH"/>
+                                            <outlet property="imageLoading" destination="Lib-NT-tA0" id="sGc-rS-eLE"/>
                                             <outlet property="movieDirector" destination="FeC-QP-21a" id="aLJ-Vh-w0n"/>
                                             <outlet property="movieReleaseYear" destination="bij-KC-GYK" id="jeh-Ca-Gox"/>
                                             <outlet property="movieThumbnail" destination="0RC-wd-dt4" id="TKc-If-hQT"/>
@@ -161,7 +171,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VyG-YQ-gCy">
-                                        <rect key="frame" x="0.0" y="20" width="414" height="679"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="679"/>
                                         <subviews>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PQA-8y-y6c">
                                                 <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
@@ -236,7 +246,7 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="VyG-YQ-gCy" firstAttribute="top" secondItem="BRo-dQ-VA8" secondAttribute="top" constant="20" id="6c2-HU-TLb"/>
+                                    <constraint firstItem="VyG-YQ-gCy" firstAttribute="top" secondItem="BRo-dQ-VA8" secondAttribute="top" id="6c2-HU-TLb"/>
                                     <constraint firstItem="VyG-YQ-gCy" firstAttribute="bottom" secondItem="BRo-dQ-VA8" secondAttribute="bottom" id="7EY-Hf-VS5"/>
                                     <constraint firstItem="VyG-YQ-gCy" firstAttribute="trailing" secondItem="BRo-dQ-VA8" secondAttribute="trailing" id="F2S-jF-kvE"/>
                                     <constraint firstItem="VyG-YQ-gCy" firstAttribute="centerX" secondItem="76f-fB-KtG" secondAttribute="centerX" id="G8j-35-aJj"/>
@@ -328,6 +338,13 @@
                                                     <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="giF-OA-hNW">
+                                                    <rect key="frame" x="54" y="90" width="20" height="20"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="20" id="EBE-G1-arE"/>
+                                                        <constraint firstAttribute="width" constant="20" id="n4G-bQ-Tml"/>
+                                                    </constraints>
+                                                </activityIndicatorView>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="kCh-u2-JjO" secondAttribute="trailing" constant="10" id="24o-1g-h58"/>
@@ -342,13 +359,16 @@
                                                 <constraint firstAttribute="trailing" secondItem="1yc-nm-5bf" secondAttribute="trailing" constant="10" id="UBx-aI-faI"/>
                                                 <constraint firstItem="roa-hx-LeS" firstAttribute="top" secondItem="Qdu-nD-Liv" secondAttribute="bottom" constant="10" id="XI5-JY-xaU"/>
                                                 <constraint firstItem="kCh-u2-JjO" firstAttribute="top" secondItem="1yc-nm-5bf" secondAttribute="bottom" id="e10-sR-PKk"/>
+                                                <constraint firstItem="giF-OA-hNW" firstAttribute="centerY" secondItem="Qdu-nD-Liv" secondAttribute="centerY" id="fGA-m0-EJ2"/>
                                                 <constraint firstAttribute="trailing" secondItem="rJ3-Nm-Ou1" secondAttribute="trailing" constant="10" id="lpS-Qy-IRy"/>
                                                 <constraint firstAttribute="bottom" secondItem="kCh-u2-JjO" secondAttribute="bottom" constant="10" id="o41-YF-bhg"/>
+                                                <constraint firstItem="giF-OA-hNW" firstAttribute="centerX" secondItem="Qdu-nD-Liv" secondAttribute="centerX" id="rdx-GP-qeM"/>
                                                 <constraint firstItem="1yc-nm-5bf" firstAttribute="top" secondItem="roa-hx-LeS" secondAttribute="bottom" id="yjp-2G-rhr"/>
                                             </constraints>
                                         </collectionViewCellContentView>
                                         <connections>
                                             <outlet property="favButton" destination="rJ3-Nm-Ou1" id="uDp-ae-nhi"/>
+                                            <outlet property="imageLoading" destination="giF-OA-hNW" id="mJF-kj-HbM"/>
                                             <outlet property="movieDirector" destination="1yc-nm-5bf" id="SFA-K0-bOK"/>
                                             <outlet property="movieReleaseYear" destination="kCh-u2-JjO" id="AaE-yb-k5u"/>
                                             <outlet property="movieThumbnail" destination="Qdu-nD-Liv" id="Phe-2K-H4K"/>
@@ -397,7 +417,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pon-T7-CEw"/>
+        <segue reference="m4t-mc-4gV"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="calendar" catalog="system" width="128" height="106"/>

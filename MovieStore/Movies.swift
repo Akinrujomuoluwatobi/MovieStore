@@ -8,7 +8,6 @@
 import Foundation
 import RealmSwift
 import ObjectMapper
-import SwiftyJSON
 
 // MARK: - Movies
 class Movies: Mappable, Codable {

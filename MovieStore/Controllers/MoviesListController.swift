@@ -28,6 +28,7 @@ class MoviesListController: UIViewController {
         fetchPopulateMovies("action")
     }
     
+    //This method make a call to the WebService to get the list of movies and upon successful fetching, create a list of MoviesViewModel.
     func fetchPopulateMovies(_ searchTerm: String) {
         loadingIndicator.startAnimating()
         WebServices().load(resource: Movies.all(searchTerm)) {[weak self] result in
@@ -54,6 +55,7 @@ class MoviesListController: UIViewController {
         fetchPopulateMovies(searchItem.text ?? "")
     }
     
+    //This method is called upon click of the favourite icon and passing the movies model save it to the RealmDB
     func saveFavourite(_ movie: D?) {
         do {
             let realm =  try? Realm(configuration: RealmConfig.configuration)
@@ -69,6 +71,7 @@ class MoviesListController: UIViewController {
         }
     }
     
+    //This override method is called to launcg the MovieDetails View Controller
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let vc  = segue.destination as? MovieDetailsViewController else { return  }
         vc.vm = selectedVM
@@ -96,7 +99,7 @@ extension MoviesListController: UICollectionViewDataSource, UICollectionViewDele
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 180, height: 300)
+        return CGSize(width: 180, height: 310)
     }
     
     @objc func tap(_ sender: UITapGestureRecognizer) {
